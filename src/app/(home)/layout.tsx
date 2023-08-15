@@ -1,8 +1,6 @@
+import Providers from "@/components/Providers";
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter, Roboto_Mono } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,12 +14,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true} className={inter.className}>
-        <h1>Home Header</h1>
-        <hr />
-        {children}
-        <hr />
-        <h1>Home footer</h1>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>
+        <Providers>
+          <h1>Home Header</h1>
+          <hr />
+          {children}
+          <hr />
+          <h1>Home footer</h1>
+        </Providers>
       </body>
     </html>
   );
